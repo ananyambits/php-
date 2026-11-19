@@ -1,17 +1,26 @@
-
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "sampledb";
-
-// Create database connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
+$conn = new mysqli("localhost","root","","sampledb");
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+   die("Connection failed");
+}
+$sql = "SELECT * FROM products";
+$result=$conn->query($sql);
+echo "<h2>Product Details</h2>";
+echo "<table border='1' cellpadding='10'>";
+echo "<tr><th>ID</th>
+<th>Item Name</th>
+<th>Price</th>
+</tr>";
+
+while($row=$result->fetch_assoc()) {
+echo "<tr>";
+echo "<td>" . $row['id'] . "</td>";
+echo "<td>" . $row['item_name'] . "</td>";
+echo "<td>" . $row['price'] . "</td>";
+echo "</tr>";
 }
 
-echo "Database connected successfully!";
+echo "<table>";
+
+$conn->close();
 ?>

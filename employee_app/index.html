@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Employee Management System</title>
+<body>
+<h2>Add Employee Record</h2>
+<form action="insert.php" method="POST">
+Employee ID:<input type="text" name="emp_id" required><br><br>
+Full Name:<input type="text" name="name" required><br><br>
+Department:<input type="text" name="department" required><br><br>
+Designation:<input type="text" name="designation" required><br><br>
+Salary:<input type="number" step="0.01" name="salary" required><br><br>
+<input type="submit" value="Save Employee">
+</form>
+
+<hr>
+<h2>Search Employee</h2>
+<form action="search.php" method="GET">
+Enter Employee Name or ID: <input type="text" name="search_query" required>
+<input type="submit" value="search">
+</form>
+<br>
+<a href="view_all.php">View All Employee</a>
+</body>
+</html>
